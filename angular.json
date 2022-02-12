@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "ngx-bs": "apps/ngx-bs",
-    "ngx-bs-e2e": "apps/ngx-bs-e2e"
+    "ngx-bs-e2e": "apps/ngx-bs-e2e",
+    "ngx-observable-components": "libs/ngx-observable-components"
   }
 }

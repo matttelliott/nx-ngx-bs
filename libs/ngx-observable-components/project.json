@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/ngx-observable-components",
+  "sourceRoot": "libs/ngx-observable-components/src",
+  "prefix": "nx-ngx-bs",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ngx-observable-components"],
+      "options": {
+        "project": "libs/ngx-observable-components/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngx-observable-components/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngx-observable-components/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ngx-observable-components"],
+      "options": {
+        "jestConfig": "libs/ngx-observable-components/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-observable-components/src/**/*.ts",
+          "libs/ngx-observable-components/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

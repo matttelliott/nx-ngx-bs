@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { test$ } from '@matttelliott/ngx-observable-components';
 
 @Component({
   selector: 'nx-ngx-bs-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-bs';
+  test$ = test$()
 }
