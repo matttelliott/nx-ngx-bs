@@ -49,14 +49,14 @@ class MyComponent {
 ```
 */
 export function NgOnDoCheck$() {
-  return (target: object, propName: string): void => {
+  return (target: any, propName: string): void => {
     const ngOnDoCheck$ = new ReplaySubject<void>(1)
-    const oldOnDoCheckFn = (target as { ngOnDoCheck: () => void }).ngOnDoCheck
+    const oldOnDoCheckFn = target?.ngOnDoCheck || function () {return void 0 }
     const newDoCheckFn = () => {
       ngOnDoCheck$.next()
       oldOnDoCheckFn && oldOnDoCheckFn()
     }
-    const oldDestroyFn = (target as { ngOnDestroy: () => void }).ngOnDestroy
+    const oldDestroyFn = target?.ngOnDestroy || function () {return void 0 }
     const newDestroyFn = () => {
       ngOnDoCheck$.complete()
       oldDestroyFn && oldDestroyFn()
@@ -69,26 +69,25 @@ export function NgOnDoCheck$() {
   }
 }
 
-
 /**
  * @example
  * event as observable
 ```
 class MyComponent {
-  @NgAfterViewInit()
-  private readonly ngAfterViewInit$!: ReplaySubject<void>
-  test$ = this.ngAfterViewInit$.subscribe(() => console.log('component.ngAfterViewInit$'))
+  @NgAfterContentInit()
+  private readonly ngAfterContentInit$!: ReplaySubject<void>
+  test$ = this.ngAfterContentInit$.subscribe(() => console.log('component.ngAfterContentInit$'))
 }
 ```
 */
 export function NgAfterContentInit$() {
   return (
-    target: { ngAfterContentInit: () => void },
+    target: any,
     propName: string
   ): void => {
     const ngAfterContentInit$ = new ReplaySubject<void>(1)
 
-    const oldInitFn = target.ngAfterContentInit
+    const oldInitFn = target?.ngAfterContentInit || function () { return void 0 }
     const newInitFn = () => {
       ngAfterContentInit$.next()
       ngAfterContentInit$.complete()
@@ -100,7 +99,6 @@ export function NgAfterContentInit$() {
     })
   }
 }
-
 
 /**
  * @example
@@ -136,7 +134,6 @@ export function NgAfterContentChecked$() {
   }
 }
 
-
 /**
  * @example
  * event as observable
@@ -149,20 +146,18 @@ class MyComponent {
 ```
 */
 export function NgAfterViewInit$() {
-  return (target: object, propName: string): void => {
+  return (target: any, propName: string): void => {
     const ngAfterViewInit$ = new ReplaySubject<void>(1)
 
-    const oldInitFn = (target as { ngAfterViewInit: () => void })
-      .ngAfterViewInit
+    const oldInitFn = target?.ngAfterViewInit || function () { return void 0 }
     const newInitFn = () => {
       ngAfterViewInit$.next()
       ngAfterViewInit$.complete()
       oldInitFn && oldInitFn()
     }
-    Object.assign(target, { [propName]: ngAfterViewInit$, ngOnInit: newInitFn })
+    Object.assign(target, { [propName]: ngAfterViewInit$, ngAfterViewInit: newInitFn })
   }
 }
-
 
 /**
  * @example
@@ -197,7 +192,6 @@ export function NgAfterViewChecked$() {
   }
 }
 
-
 /**
  * @example
  * event as observable
@@ -210,10 +204,14 @@ class MyComponent {
 ```
 */
 export function NgOnDestroy$() {
-  return (target: { ngOnDestroy: () => void }, propName: string): void => {
+  return (target: any, propName: string): void => {
     const ngOnDestroy$ = new ReplaySubject<void>(1)
 
-    const oldDestroyFn = target.ngOnDestroy
+    const oldDestroyFn =
+      target?.ngOnDestroy ||
+      function () {
+        return void 0
+      }
     const newDestroyFn = () => {
       ngOnDestroy$.next()
       ngOnDestroy$.complete()
