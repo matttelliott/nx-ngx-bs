@@ -1,4 +1,4 @@
-[[index.md]]
+[index](./index.md)
 
 # [Lifecycle Decorators](https://github.com/matttelliott/nx-ngx-bs/blob/master/libs/ngx-observable-components/src/lib/lifecycle-decorators.ts)
 
