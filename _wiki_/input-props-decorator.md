@@ -1,6 +1,6 @@
-[[index]]
+[index](./index.md)
 
-previous:: [[props-as-observables]]
+previous:: [props-as-observables](./index.md)
 
 # [`Input$()` decorator](https://github.com/matttelliott/nx-ngx-bs/blob/master/libs/ngx-observable-components/src/lib/input.decorator.ts)
 
@@ -80,4 +80,4 @@ class MyComponent {
 }
 ```
 
-next:: [[component-with-props]]
+next:: [component-with-props](./component-with-props.md)

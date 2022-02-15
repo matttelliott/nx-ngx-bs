@@ -1,4 +1,4 @@
-[[index.md]]
+[index](./index.md)
 
 # `@Input()` as `props`
 
@@ -118,4 +118,4 @@ class ParentComponent {
 }
 ```
 
-next:: [[props-as-observables]]
+next:: [props-as-observables](./props-as-observables.md)

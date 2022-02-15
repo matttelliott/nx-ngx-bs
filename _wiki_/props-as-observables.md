@@ -1,6 +1,6 @@
-[[index]]
+[index](./index.md)
 
-previous:: [[props]]
+previous:: [props](./props.md)
 
 # `props$` as observables
 
@@ -87,4 +87,4 @@ class MyComponent {
 }
 ```
 
-next:: [[input-props-decorator]]
+next:: [input-props-decorator](./input-props-decorator.md)

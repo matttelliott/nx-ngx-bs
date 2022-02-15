@@ -1,6 +1,6 @@
-[[index]]
+[index](./index.md)
 
-previous:: [[input-props-decorator]]
+previous:: [input-props-decorator](./input-props-decorator.md)
 
 # [`ComponentWithProps<T>`](https://github.com/matttelliott/nx-ngx-bs/blob/master/libs/ngx-observable-components/src/lib/component-with-props.component.ts)
 
