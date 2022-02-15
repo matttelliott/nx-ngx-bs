@@ -1,1 +1,1 @@
-[[_wiki_/index.md]]
+[wiki](./_wiki_/index.md)
