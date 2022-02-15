@@ -80,4 +80,4 @@ class MyComponent {
 }
 ```
 
-next:: [component-with-props](./component-with-props.md)
+next:: [has-props-component](./has-props-component.md)

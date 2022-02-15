@@ -2,7 +2,7 @@
 
 previous:: [input-props-decorator](./input-props-decorator.md)
 
-# [`HasPropsComponent<T>`](https://github.com/matttelliott/nx-ngx-bs/blob/master/libs/ngx-observable-components/src/lib/has-props.component.ts)
+# [`HasPropsComponent<T>`](https://github.com/matttelliott/nx-ngx-bs/blob/master/libs/ngx-observable-components/src/lib/component-with-props.component.ts)
 
 If we want to lean into the power or RxJs as the Angular framework encourages
 us to, it is convenient and expedient to adopt the convention of using the

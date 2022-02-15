@@ -87,4 +87,31 @@ class MyComponent {
 }
 ```
 
+As with all components, we must use care not to unnecessarily update props and
+negate the performance benefits of `OnPush` change detection. This can often be
+done using the `distinctUntilChanged` rxjs operator
+
+```typescript
+@Component({
+  template: `
+    <user-form-component [props]="userFormProps"> </user-form-component>
+    <other-component [props]="otherComponentProps"> </other-component>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class ParentComponent {
+  public userFormProps$: UserFormComponentProps = this.props$.pipe(
+    map((props) => props.user),
+    distinctUntilChanged((a, b) => a.id === b.id),
+    map((user) => ({
+      user: user,
+      isDarkMode: true,
+      size: 3,
+      loggingInfo: { isVip: false },
+      companyStuff: undefined,
+    }))
+  )
+}
+```
+
 next:: [input-props-decorator](./input-props-decorator.md)
