@@ -94,15 +94,14 @@ done using the `distinctUntilChanged` rxjs operator
 ```typescript
 @Component({
   template: `
-    <user-form-component [props]="userFormProps"> </user-form-component>
-    <other-component [props]="otherComponentProps"> </other-component>
+    <user-form-component [props]="userFormProps$ | async"> </user-form-component>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class ParentComponent {
   public userFormProps$: UserFormComponentProps = this.props$.pipe(
     map((props) => props.user),
-    distinctUntilChanged((a, b) => a.id === b.id),
+    distinctUntilChanged((lastUser, nextUser) => lastUser.id === nextUser.id),
     map((user) => ({
       user: user,
       isDarkMode: true,
