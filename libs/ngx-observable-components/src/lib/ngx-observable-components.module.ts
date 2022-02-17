@@ -4,12 +4,14 @@ import { ObservableComponent } from './observable.component'
 import { HasPropsComponent } from './has-props.component'
 import { HasActionsComponent } from './has-actions.component'
 import { HasPropsAndActionsComponent } from './has-props-and-actions.component'
+import { HasLifecycleComponent } from './has-lifecycle.component'
 
 const components = [
   ObservableComponent,
   HasPropsComponent,
   HasActionsComponent,
   HasPropsAndActionsComponent,
+  HasLifecycleComponent,
 ]
 @NgModule({
   imports: [CommonModule],
